@@ -3,7 +3,7 @@ import { Routes , Route } from 'react-router-dom'
 import Blog from './pages/Blog'
 import Home from './pages/Home'
 import Layout from './pages/admin/Layout'
-import Dashboard from './pages/admin/dashboard'
+import Dashboard from './pages/admin/Dashboard'
 
 import ListBlog from './pages/admin/listBlog'
 import Comments from './pages/admin/comments'
