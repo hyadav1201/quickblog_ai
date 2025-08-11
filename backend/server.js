@@ -11,10 +11,10 @@ await connectDB();
 
 // Middlewares
 app.use(cors({
-  origin: "https://quickblog-ai.vercel.app", // your frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  origin: "https://quickblog-ai.vercel.app",
   credentials: true
 }));
+
 app.use(express.json());
 
 // Routes
