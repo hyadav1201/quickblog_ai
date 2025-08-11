@@ -15,6 +15,7 @@ function AddBlog() {
   const [image, setImage] = useState(false);
   const [title, setTitle] = useState("");
   const [subtitle, setSubTitle] = useState('');
+  const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('Startup');
   const [isPublished, setisPublished] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ function AddBlog() {
       setIsAdding(true)
       const blog = {
         title , subtitle , description : quillRef.current.root.innerHTML,
-        category , isPublished
+        category , isPublished, author
       }
 
       const formData = new FormData();
@@ -58,6 +59,7 @@ function AddBlog() {
         toast.success(data.message);
         setImage(false)
         setTitle('')
+        setAuthor('')
         quillRef.current.root.innerHTML = ''
         setCategory('Startup')
       }else{
@@ -84,7 +86,11 @@ function AddBlog() {
 
         <p>Upload Thumbnail</p>
         <label htmlFor="image">
-          <img src={!image ? assets.upload_area : URL.createObjectURL(image)} alt="" className='mt-2 h-16 rounded cursor-pointer' />
+        <img
+  src={image instanceof File ? URL.createObjectURL(image) : assets.upload_area}
+  alt="thumbnail preview"
+  className="mt-2 h-16 rounded cursor-pointer"
+/>
           <input onChange={(e) => setImage(e.target.files[0])} type="file" id='image' hidden required />
         </label>
 
@@ -106,6 +112,16 @@ function AddBlog() {
           className='w-full max-w-lg mt-2 p-2 border border-gray-300 outline-none rounded'
           onChange={e => setSubTitle(e.target.value)}
           value={subtitle}
+        />
+
+        <p className='mt-4 '>Author</p>
+        <input
+          type="text"
+          placeholder='Enter author name'
+          required
+          className='w-full max-w-lg mt-2 p-2 border border-gray-300 outline-none rounded'
+          onChange={e => setAuthor(e.target.value)}
+          value={author}
         />
 
         <p className='mt-4 '>Blog Description</p>
