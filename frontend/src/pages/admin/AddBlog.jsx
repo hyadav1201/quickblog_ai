@@ -86,11 +86,7 @@ function AddBlog() {
 
         <p>Upload Thumbnail</p>
         <label htmlFor="image">
-        <img
-  src={image instanceof File ? URL.createObjectURL(image) : assets.upload_area}
-  alt="thumbnail preview"
-  className="mt-2 h-16 rounded cursor-pointer"
-/>
+          <img src={!image ? assets.upload_area : URL.createObjectURL(image)} alt="" className='mt-2 h-16 rounded cursor-pointer' />
           <input onChange={(e) => setImage(e.target.files[0])} type="file" id='image' hidden required />
         </label>
 
