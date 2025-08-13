@@ -12,7 +12,7 @@ await connectDB();
 // Middlewares
 app.use(cors({
   origin: [
-    "https://quickblog-ai.vercel.app/"
+    "https://quickblog-ai.vercel.app"
   ],
   credentials: true
 }));
