@@ -11,7 +11,12 @@ await connectDB();
 
 // Middlewares
 app.use(cors({
-  origin: "https://quickblog-2awobc9lb-bytewizard12s-projects.vercel.app",
+  origin: [
+    "https://quickblog-2awobc9lb-bytewizard12s-projects.vercel.app",
+    "https://quickblog-rhug3a9vr-bytewizard12s-projects.vercel.app",
+    "http://localhost:5173", // For local development
+    "http://localhost:3000"  // For local development
+  ],
   credentials: true
 }));
 
